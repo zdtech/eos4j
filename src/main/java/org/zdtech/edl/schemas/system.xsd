@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://zdtech.org/2015/EDLEventSchema"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://zdtech.org/2015/EDLEventSchema"
+        >
+    <xs:element name="edlSystem">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="parameter" type="tns:parameter"/>
+                <xs:element name="eventsHolder" type="tns:eventsHolder" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="priority" type="xs:integer" use="required"/>
+            <xs:attribute name="expression" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="parameter">
+        <xs:attribute name="uid" type="xs:long" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:anyType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="eventsHolder">
+        <xs:attribute name="uid" type="xs:long" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:anyType" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

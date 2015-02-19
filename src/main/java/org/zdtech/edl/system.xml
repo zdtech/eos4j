@@ -1,0 +1,1907 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  name="IngdpService"
+                  targetNamespace="http://tempuri.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        >
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                   targetNamespace="http://tempuri.org/">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/DBService.Service"/>
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"/>
+            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"/>
+            <xs:element name="GetRoads">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetRoadsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetRoadsResult" nillable="true" type="q1:RoadOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetClientId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetClientIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetClientIdResult" nillable="true" type="q2:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="clientId" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetUserResult" nillable="true" type="q3:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetUsers">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetUsersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetUsersResult" nillable="true" type="q4:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="RemoveUserResult" nillable="true" type="q5:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="user" nillable="true" type="q6:UserDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddUserResult" nillable="true" type="q7:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="user" nillable="true" type="q8:UserDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="UpdateUserResult" nillable="true" type="q9:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetRules">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetRulesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetRulesResult" nillable="true" type="q10:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetRulesByUserId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetRulesByUserIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetRulesByUserIdResult" nillable="true" type="q11:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRuleToUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRuleToUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddRuleToUserResult" nillable="true" type="q12:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetRulesToUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="rulesIds" nillable="true" type="q13:ArrayOflong"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetRulesToUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="SetRulesToUserResult" nillable="true" type="q14:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveRuleFromUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveRuleFromUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="RemoveRuleFromUserResult" nillable="true" type="q15:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="rule" nillable="true" type="q16:RuleDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddRuleResult" nillable="true" type="q17:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRuleWithDUs">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="rule" nillable="true" type="q18:RuleDTO"/>
+                        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="dus" nillable="true" type="q19:ArrayOflong"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddRuleWithDUsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddRuleWithDUsResult" nillable="true" type="q20:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="RemoveRuleResult" nillable="true" type="q21:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="rule" nillable="true" type="q22:RuleDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="UpdateRuleResult" nillable="true" type="q23:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateRuleWithDUs">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                    minOccurs="0" name="rule" nillable="true" type="q24:RuleDTO"/>
+                        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="dus" nillable="true" type="q25:ArrayOflong"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateRuleWithDUsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="UpdateRuleWithDUsResult" nillable="true" type="q26:RulesOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDUs">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDUsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetDUsResult" nillable="true" type="q27:DusOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDUsByRuleId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDUsByRuleIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetDUsByRuleIdResult" nillable="true" type="q28:DusOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddDUForRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="duId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddDUForRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddDUForRuleResult" nillable="true" type="q29:DusOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveDUFromRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="duId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveDUFromRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="RemoveDUFromRuleResult" nillable="true" type="q30:DusOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDUsToRule">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ruleId" type="xs:long"/>
+                        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="dusIds" nillable="true" type="q31:ArrayOflong"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDUsToRuleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="SetDUsToRuleResult" nillable="true" type="q32:DusOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUserIP">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUserIPResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="AddUserIPResult" nillable="true" type="q33:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveUserIP">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userId" type="xs:long"/>
+                        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RemoveUserIPResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="RemoveUserIPResult" nillable="true" type="q34:UsersOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnloadTaskFromDbbyDUs">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="firstDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="lastDate" type="xs:dateTime"/>
+                        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="dusIdentifiers" nillable="true" type="q35:ArrayOflong"/>
+                        <xs:element minOccurs="0" name="isNormative" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnloadTaskFromDbbyDUsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="UnloadTaskFromDbbyDUsResult" nillable="true" type="q36:TaskOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnloadTaskFromDbbySections">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="firstDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="lastDate" type="xs:dateTime"/>
+                        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0"
+                                    name="sectionsIdentifiers" nillable="true" type="q37:ArrayOflong"/>
+                        <xs:element minOccurs="0" name="isNormative" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnloadTaskFromDbbySectionsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="UnloadTaskFromDbbySectionsResult" nillable="true"
+                                    type="q38:TaskOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoadTaskToDB">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"
+                                    minOccurs="0" name="task" nillable="true" type="q39:XmlTask"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoadTaskToDBResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="LoadTaskToDBResult" nillable="true" type="q40:OperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoadTaskToDrafts">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"
+                                    minOccurs="0" name="task" nillable="true" type="q41:XmlTask"/>
+                        <xs:element minOccurs="0" name="supervisorId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoadTaskToDraftsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="LoadTaskToDraftsResult" nillable="true" type="q42:OperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDrafts">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDraftsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DBService.Service" minOccurs="0"
+                                    name="GetDraftsResult" nillable="true" type="q43:DraftOperationResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified"
+                   elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/">
+            <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+            <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+            <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+            <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+            <xs:element name="byte" nillable="true" type="xs:byte"/>
+            <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+            <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+            <xs:element name="double" nillable="true" type="xs:double"/>
+            <xs:element name="float" nillable="true" type="xs:float"/>
+            <xs:element name="int" nillable="true" type="xs:int"/>
+            <xs:element name="long" nillable="true" type="xs:long"/>
+            <xs:element name="QName" nillable="true" type="xs:QName"/>
+            <xs:element name="short" nillable="true" type="xs:short"/>
+            <xs:element name="string" nillable="true" type="xs:string"/>
+            <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+            <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+            <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+            <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+            <xs:element name="char" nillable="true" type="tns:char"/>
+            <xs:simpleType name="char">
+                <xs:restriction base="xs:int"/>
+            </xs:simpleType>
+            <xs:element name="duration" nillable="true" type="tns:duration"/>
+            <xs:simpleType name="duration">
+                <xs:restriction base="xs:duration">
+                    <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+                    <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+                    <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="guid" nillable="true" type="tns:guid"/>
+            <xs:simpleType name="guid">
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:attribute name="FactoryType" type="xs:QName"/>
+            <xs:attribute name="Id" type="xs:ID"/>
+            <xs:attribute name="Ref" type="xs:IDREF"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://schemas.datacontract.org/2004/07/DBService.Service" elementFormDefault="qualified"
+                   targetNamespace="http://schemas.datacontract.org/2004/07/DBService.Service">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"/>
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"/>
+            <xs:complexType name="RoadOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                        minOccurs="0" name="Roads" nillable="true" type="q1:ArrayOfRoadDTO"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RoadOperationResult" nillable="true" type="tns:RoadOperationResult"/>
+            <xs:complexType name="OperationResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="HasErrors" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="OperationCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="OpertaionMessage" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="OperationResult" nillable="true" type="tns:OperationResult"/>
+            <xs:complexType name="UsersOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                        minOccurs="0" name="Users" nillable="true" type="q2:ArrayOfUserDTO"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="UsersOperationResult" nillable="true" type="tns:UsersOperationResult"/>
+            <xs:complexType name="RulesOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                        minOccurs="0" name="Rules" nillable="true" type="q3:ArrayOfRuleDTO"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RulesOperationResult" nillable="true" type="tns:RulesOperationResult"/>
+            <xs:complexType name="DusOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                                        minOccurs="0" name="DUs" nillable="true" type="q4:ArrayOfDuDTO"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DusOperationResult" nillable="true" type="tns:DusOperationResult"/>
+            <xs:complexType name="TaskOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"
+                                        minOccurs="0" name="XmlTask" nillable="true" type="q5:XmlTask"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="TaskOperationResult" nillable="true" type="tns:TaskOperationResult"/>
+            <xs:complexType name="DraftOperationResult">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:OperationResult">
+                        <xs:sequence>
+                            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"
+                                        minOccurs="0" name="Drafts" nillable="true" type="q6:ArrayOfXmlTask"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DraftOperationResult" nillable="true" type="tns:DraftOperationResult"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://schemas.datacontract.org/2004/07/DBService.Service.DTO"
+                   elementFormDefault="qualified"
+                   targetNamespace="http://schemas.datacontract.org/2004/07/DBService.Service.DTO">
+            <xs:complexType name="ArrayOfRoadDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="RoadDTO" nillable="true" type="tns:RoadDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfRoadDTO" nillable="true" type="tns:ArrayOfRoadDTO"/>
+            <xs:complexType name="RoadDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:ArrayOfDuDTO"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="RoadDTO" nillable="true" type="tns:RoadDTO"/>
+            <xs:complexType name="ArrayOfDuDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="DuDTO" nillable="true" type="tns:DuDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfDuDTO" nillable="true" type="tns:ArrayOfDuDTO"/>
+            <xs:complexType name="DuDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:ArrayOfSectionDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DuDTO" nillable="true" type="tns:DuDTO"/>
+            <xs:complexType name="ArrayOfSectionDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="SectionDTO" nillable="true"
+                                type="tns:SectionDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfSectionDTO" nillable="true" type="tns:ArrayOfSectionDTO"/>
+            <xs:complexType name="SectionDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="FirstDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="LastDate" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SectionDTO" nillable="true" type="tns:SectionDTO"/>
+            <xs:complexType name="ArrayOfUserDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDTO" nillable="true" type="tns:UserDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfUserDTO" nillable="true" type="tns:ArrayOfUserDTO"/>
+            <xs:complexType name="UserDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Patronymic" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ProductCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="RoadId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRuleDTO"/>
+                    <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="UsersIPs" nillable="true" type="tns:ArrayOfUserIPDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="UserDTO" nillable="true" type="tns:UserDTO"/>
+            <xs:complexType name="ArrayOfRuleDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleDTO" nillable="true" type="tns:RuleDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfRuleDTO" nillable="true" type="tns:ArrayOfRuleDTO"/>
+            <xs:complexType name="RuleDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:ArrayOfDuDTO"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="RuleDTO" nillable="true" type="tns:RuleDTO"/>
+            <xs:complexType name="ArrayOfUserIPDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="UserIPDTO" nillable="true"
+                                type="tns:UserIPDTO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfUserIPDTO" nillable="true" type="tns:ArrayOfUserIPDTO"/>
+            <xs:complexType name="UserIPDTO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="UserIPDTO" nillable="true" type="tns:UserIPDTO"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified"
+                   targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <xs:complexType name="ArrayOflong">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="long" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities"
+                   elementFormDefault="qualified"
+                   targetNamespace="http://schemas.datacontract.org/2004/07/XmlManagment.Task.Entities">
+            <xs:complexType name="XmlTask">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Add" nillable="true" type="tns:XmlAdd"/>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:XmlDUs"/>
+                    <xs:element minOccurs="0" name="Days" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Delays" nillable="true" type="tns:XmlDelays"/>
+                    <xs:element minOccurs="0" name="Delete" nillable="true" type="tns:XmlDelete"/>
+                    <xs:element minOccurs="0" name="MinuteParts" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Peregons" nillable="true" type="tns:XmlPeregons"/>
+                    <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:XmlPeriods"/>
+                    <xs:element minOccurs="0" name="RPs" nillable="true" type="tns:XmlRPs"/>
+                    <xs:element minOccurs="0" name="Roads" nillable="true" type="tns:XmlRoads"/>
+                    <xs:element minOccurs="0" name="Rotations" nillable="true" type="tns:XmlRotations"/>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:XmlSections"/>
+                    <xs:element minOccurs="0" name="Shoulders" nillable="true" type="tns:XmlShoulders"/>
+                    <xs:element minOccurs="0" name="SourceThreads" nillable="true" type="tns:XmlThreads"/>
+                    <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:XmlThreads"/>
+                    <xs:element minOccurs="0" name="TrainRangeList" nillable="true" type="tns:XmlTrainRangeList"/>
+                    <xs:element minOccurs="0" name="Transits" nillable="true" type="tns:XmlTransits"/>
+                    <xs:element minOccurs="0" name="Update" nillable="true" type="tns:XmlUpdate"/>
+                    <xs:element minOccurs="0" name="WarningPeregons" nillable="true" type="tns:XmlWarningPeregons"/>
+                    <xs:element minOccurs="0" name="WarningTrains" nillable="true" type="tns:XmlWarningTrains"/>
+                    <xs:element minOccurs="0" name="WayWindows" nillable="true" type="tns:XmlWayWindows"/>
+                    <xs:element minOccurs="0" name="Windows" nillable="true" type="tns:XmlWindows"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlTask" nillable="true" type="tns:XmlTask"/>
+            <xs:complexType name="XmlAdd">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:XmlDUs"/>
+                    <xs:element minOccurs="0" name="Delays" nillable="true" type="tns:XmlDelays"/>
+                    <xs:element minOccurs="0" name="Peregons" nillable="true" type="tns:XmlPeregons"/>
+                    <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:XmlPeriods"/>
+                    <xs:element minOccurs="0" name="RPs" nillable="true" type="tns:XmlRPs"/>
+                    <xs:element minOccurs="0" name="Roads" nillable="true" type="tns:XmlRoads"/>
+                    <xs:element minOccurs="0" name="Rotations" nillable="true" type="tns:XmlRotations"/>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:XmlSections"/>
+                    <xs:element minOccurs="0" name="Shoulders" nillable="true" type="tns:XmlShoulders"/>
+                    <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:XmlThreads"/>
+                    <xs:element minOccurs="0" name="TrainRangeList" nillable="true" type="tns:XmlTrainRangeList"/>
+                    <xs:element minOccurs="0" name="Transits" nillable="true" type="tns:XmlTransits"/>
+                    <xs:element minOccurs="0" name="WarningPeregons" nillable="true" type="tns:XmlWarningPeregons"/>
+                    <xs:element minOccurs="0" name="WarningTrains" nillable="true" type="tns:XmlWarningTrains"/>
+                    <xs:element minOccurs="0" name="WayWindows" nillable="true" type="tns:XmlWayWindows"/>
+                    <xs:element minOccurs="0" name="Windows" nillable="true" type="tns:XmlWindows"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlAdd" nillable="true" type="tns:XmlAdd"/>
+            <xs:complexType name="XmlDUs">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:ArrayOfXmlDU"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlDUs" nillable="true" type="tns:XmlDUs"/>
+            <xs:complexType name="ArrayOfXmlDU">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlDU" nillable="true" type="tns:XmlDU"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlDU" nillable="true" type="tns:ArrayOfXmlDU"/>
+            <xs:complexType name="XmlDU">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Id" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Ids" nillable="true" type="tns:XmlIds"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="RoadId" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlDU" nillable="true" type="tns:XmlDU"/>
+            <xs:complexType name="XmlIds">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Ids" nillable="true" type="tns:ArrayOfXmlId"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlIds" nillable="true" type="tns:XmlIds"/>
+            <xs:complexType name="ArrayOfXmlId">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlId" nillable="true" type="tns:XmlId"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlId" nillable="true" type="tns:ArrayOfXmlId"/>
+            <xs:complexType name="XmlId">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlId" nillable="true" type="tns:XmlId"/>
+            <xs:complexType name="XmlDelays">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Delays" nillable="true" type="tns:ArrayOfXmlDelay"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlDelays" nillable="true" type="tns:XmlDelays"/>
+            <xs:complexType name="ArrayOfXmlDelay">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlDelay" nillable="true"
+                                type="tns:XmlDelay"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlDelay" nillable="true" type="tns:ArrayOfXmlDelay"/>
+            <xs:complexType name="XmlDelay">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Esr" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Rp" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TimeDelay" type="xs:int"/>
+                    <xs:element minOccurs="0" name="TrainNum" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlDelay" nillable="true" type="tns:XmlDelay"/>
+            <xs:complexType name="XmlPeregons">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Peregons" nillable="true" type="tns:ArrayOfXmlPeregon"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlPeregons" nillable="true" type="tns:XmlPeregons"/>
+            <xs:complexType name="ArrayOfXmlPeregon">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlPeregon" nillable="true"
+                                type="tns:XmlPeregon"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlPeregon" nillable="true" type="tns:ArrayOfXmlPeregon"/>
+            <xs:complexType name="XmlPeregon">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="AdditionalTime" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoABintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoABintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoPintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoPintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoRintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoRintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoZintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoZintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Direction" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DistanceChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DistanceNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="FirstRPId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="LastRPId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="MinCargoChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinCargoNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinPassChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinPassNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinPrigChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinPrigNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PassABintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassABintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassPintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassPintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassRintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassRintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassZintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassZintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigABintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigABintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigPintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigPintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigRintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigRintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigZintervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigZintervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Putnost" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Scb" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlPeregon" nillable="true" type="tns:XmlPeregon"/>
+            <xs:complexType name="XmlPeriods">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:ArrayOfXmlPeriod"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlPeriods" nillable="true" type="tns:XmlPeriods"/>
+            <xs:complexType name="ArrayOfXmlPeriod">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlPeriod" nillable="true"
+                                type="tns:XmlPeriod"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlPeriod" nillable="true" type="tns:ArrayOfXmlPeriod"/>
+            <xs:complexType name="XmlPeriod">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="D1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="D2" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlPeriod" nillable="true" type="tns:XmlPeriod"/>
+            <xs:complexType name="XmlRPs">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="RPs" nillable="true" type="tns:ArrayOfXmlRP"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRPs" nillable="true" type="tns:XmlRPs"/>
+            <xs:complexType name="ArrayOfXmlRP">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlRP" nillable="true" type="tns:XmlRP"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlRP" nillable="true" type="tns:ArrayOfXmlRP"/>
+            <xs:complexType name="XmlRP">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CargoNonStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ChetWays" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ChetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Chetname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ChetnamePass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CodeExp" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CrossInterval" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DirectionChetWays" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DirectionChetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DirectionChetname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="DirectionChetnamePass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="DirectionNechetWays" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DirectionNechetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DirectionNechetname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="DirectionNechetnamePass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ESR" type="xs:int"/>
+                    <xs:element minOccurs="0" name="HasMainWays" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MinTechStopCargoChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinTechStopCargoNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinTechStopPassChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinTechStopPassNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MinTechStopPrigChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NechetWays" type="xs:int"/>
+                    <xs:element minOccurs="0" name="NechetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Nechetname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NechetnamePass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NonsimulArrInterval" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassNonStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassingArrInterval" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Picket" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigNonStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="RoadId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Tzan" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRP" nillable="true" type="tns:XmlRP"/>
+            <xs:complexType name="XmlRoads">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Roads" nillable="true" type="tns:ArrayOfXmlRoad"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRoads" nillable="true" type="tns:XmlRoads"/>
+            <xs:complexType name="ArrayOfXmlRoad">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlRoad" nillable="true" type="tns:XmlRoad"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlRoad" nillable="true" type="tns:ArrayOfXmlRoad"/>
+            <xs:complexType name="XmlRoad">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Id" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Ids" nillable="true" type="tns:XmlIds"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRoad" nillable="true" type="tns:XmlRoad"/>
+            <xs:complexType name="XmlRotations">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Rotations" nillable="true" type="tns:ArrayOfXmlRotation"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRotations" nillable="true" type="tns:XmlRotations"/>
+            <xs:complexType name="ArrayOfXmlRotation">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlRotation" nillable="true"
+                                type="tns:XmlRotation"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlRotation" nillable="true" type="tns:ArrayOfXmlRotation"/>
+            <xs:complexType name="XmlRotation">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TrainNum" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TrainNums" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRotation" nillable="true" type="tns:XmlRotation"/>
+            <xs:complexType name="XmlSections">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:ArrayOfXmlSection"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlSections" nillable="true" type="tns:XmlSections"/>
+            <xs:complexType name="ArrayOfXmlSection">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlSection" nillable="true"
+                                type="tns:XmlSection"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlSection" nillable="true" type="tns:ArrayOfXmlSection"/>
+            <xs:complexType name="XmlSection">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="RPS" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlSection" nillable="true" type="tns:XmlSection"/>
+            <xs:complexType name="XmlShoulders">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Shoulders" nillable="true" type="tns:ArrayOfXmlShoulder"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlShoulders" nillable="true" type="tns:XmlShoulders"/>
+            <xs:complexType name="ArrayOfXmlShoulder">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlShoulder" nillable="true"
+                                type="tns:XmlShoulder"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlShoulder" nillable="true" type="tns:ArrayOfXmlShoulder"/>
+            <xs:complexType name="XmlShoulder">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="LocoTechStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="RPS" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="RPSLocoSmen" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Ranges" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SectionId" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlShoulder" nillable="true" type="tns:XmlShoulder"/>
+            <xs:complexType name="XmlThreads">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:ArrayOfXmlThread"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlThreads" nillable="true" type="tns:XmlThreads"/>
+            <xs:complexType name="ArrayOfXmlThread">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlThread" nillable="true"
+                                type="tns:XmlThread"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlThread" nillable="true" type="tns:ArrayOfXmlThread"/>
+            <xs:complexType name="XmlThread">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BandType" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CleanCopy" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Events" nillable="true" type="tns:ArrayOfXmlEventRP"/>
+                    <xs:element minOccurs="0" name="Id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="RoadId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="TrainNumber" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Type" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlThread" nillable="true" type="tns:XmlThread"/>
+            <xs:complexType name="ArrayOfXmlEventRP">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlEventRP" nillable="true"
+                                type="tns:XmlEventRP"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlEventRP" nillable="true" type="tns:ArrayOfXmlEventRP"/>
+            <xs:complexType name="XmlEventRP">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Arrival" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CleanCopy" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Departure" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Index" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MintechStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="NameRP" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NonStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="RPId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="TechStop" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Type" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlEventRP" nillable="true" type="tns:XmlEventRP"/>
+            <xs:complexType name="XmlTrainRangeList">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TrainRanges" nillable="true" type="tns:ArrayOfXmlRange"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlTrainRangeList" nillable="true" type="tns:XmlTrainRangeList"/>
+            <xs:complexType name="ArrayOfXmlRange">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlRange" nillable="true"
+                                type="tns:XmlRange"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlRange" nillable="true" type="tns:ArrayOfXmlRange"/>
+            <xs:complexType name="XmlRange">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="MinRouteVelocity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Nagon" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Prioritet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Ranges" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SubType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TimeShift" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TimeShiftMinus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlRange" nillable="true" type="tns:XmlRange"/>
+            <xs:complexType name="XmlTransits">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Transits" nillable="true" type="tns:ArrayOfXmlTransit"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlTransits" nillable="true" type="tns:XmlTransits"/>
+            <xs:complexType name="ArrayOfXmlTransit">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlTransit" nillable="true"
+                                type="tns:XmlTransit"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlTransit" nillable="true" type="tns:ArrayOfXmlTransit"/>
+            <xs:complexType name="XmlTransit">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TrainNum" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlTransit" nillable="true" type="tns:XmlTransit"/>
+            <xs:complexType name="XmlWarningPeregons">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="WarningPeregons" nillable="true"
+                                type="tns:ArrayOfXmlWarningPeregon"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWarningPeregons" nillable="true" type="tns:XmlWarningPeregons"/>
+            <xs:complexType name="ArrayOfXmlWarningPeregon">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlWarningPeregon" nillable="true"
+                                type="tns:XmlWarningPeregon"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlWarningPeregon" nillable="true" type="tns:ArrayOfXmlWarningPeregon"/>
+            <xs:complexType name="XmlWarningPeregon">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Direction" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Duration" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Interval" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Km1" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Km2" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Peregon" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PrigChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Start" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWarningPeregon" nillable="true" type="tns:XmlWarningPeregon"/>
+            <xs:complexType name="XmlWarningTrains">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="WarningTrains" nillable="true" type="tns:ArrayOfXmlWarningTrain"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWarningTrains" nillable="true" type="tns:XmlWarningTrains"/>
+            <xs:complexType name="ArrayOfXmlWarningTrain">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlWarningTrain" nillable="true"
+                                type="tns:XmlWarningTrain"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlWarningTrain" nillable="true" type="tns:ArrayOfXmlWarningTrain"/>
+            <xs:complexType name="XmlWarningTrain">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Peregon" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TimePeregon" type="xs:int"/>
+                    <xs:element minOccurs="0" name="TrainNumber" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWarningTrain" nillable="true" type="tns:XmlWarningTrain"/>
+            <xs:complexType name="XmlWayWindows">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="WayWindows" nillable="true" type="tns:ArrayOfXmlWayWindow"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWayWindows" nillable="true" type="tns:XmlWayWindows"/>
+            <xs:complexType name="ArrayOfXmlWayWindow">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlWayWindow" nillable="true"
+                                type="tns:XmlWayWindow"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlWayWindow" nillable="true" type="tns:ArrayOfXmlWayWindow"/>
+            <xs:complexType name="XmlWayWindow">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ChetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Duration" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ESR" type="xs:int"/>
+                    <xs:element minOccurs="0" name="NechetWaysPass" type="xs:int"/>
+                    <xs:element minOccurs="0" name="RP" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Start" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWayWindow" nillable="true" type="tns:XmlWayWindow"/>
+            <xs:complexType name="XmlWindows">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Windows" nillable="true" type="tns:ArrayOfXmlWindow"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWindows" nillable="true" type="tns:XmlWindows"/>
+            <xs:complexType name="ArrayOfXmlWindow">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlWindow" nillable="true"
+                                type="tns:XmlWindow"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlWindow" nillable="true" type="tns:ArrayOfXmlWindow"/>
+            <xs:complexType name="XmlWindow">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CargoChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CargoNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Direction" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Duration" type="xs:int"/>
+                    <xs:element minOccurs="0" name="IntervalChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="IntervalNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Km1" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Km2" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PassNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Peregon" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PrigChet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="PrigNechet" type="xs:int"/>
+                    <xs:element minOccurs="0" name="RoadId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="Start" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlWindow" nillable="true" type="tns:XmlWindow"/>
+            <xs:complexType name="XmlDelete">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:XmlDUs"/>
+                    <xs:element minOccurs="0" name="Delays" nillable="true" type="tns:XmlDelays"/>
+                    <xs:element minOccurs="0" name="Peregons" nillable="true" type="tns:XmlPeregons"/>
+                    <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:XmlPeriods"/>
+                    <xs:element minOccurs="0" name="RPs" nillable="true" type="tns:XmlRPs"/>
+                    <xs:element minOccurs="0" name="Roads" nillable="true" type="tns:XmlRoads"/>
+                    <xs:element minOccurs="0" name="Rotations" nillable="true" type="tns:XmlRotations"/>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:XmlSections"/>
+                    <xs:element minOccurs="0" name="Shoulders" nillable="true" type="tns:XmlShoulders"/>
+                    <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:XmlThreads"/>
+                    <xs:element minOccurs="0" name="TrainRangeList" nillable="true" type="tns:XmlTrainRangeList"/>
+                    <xs:element minOccurs="0" name="Transits" nillable="true" type="tns:XmlTransits"/>
+                    <xs:element minOccurs="0" name="WarningPeregons" nillable="true" type="tns:XmlWarningPeregons"/>
+                    <xs:element minOccurs="0" name="WarningTrains" nillable="true" type="tns:XmlWarningTrains"/>
+                    <xs:element minOccurs="0" name="WayWindows" nillable="true" type="tns:XmlWayWindows"/>
+                    <xs:element minOccurs="0" name="Windows" nillable="true" type="tns:XmlWindows"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlDelete" nillable="true" type="tns:XmlDelete"/>
+            <xs:complexType name="XmlUpdate">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DUs" nillable="true" type="tns:XmlDUs"/>
+                    <xs:element minOccurs="0" name="Delays" nillable="true" type="tns:XmlDelays"/>
+                    <xs:element minOccurs="0" name="Peregons" nillable="true" type="tns:XmlPeregons"/>
+                    <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:XmlPeriods"/>
+                    <xs:element minOccurs="0" name="RPs" nillable="true" type="tns:XmlRPs"/>
+                    <xs:element minOccurs="0" name="Roads" nillable="true" type="tns:XmlRoads"/>
+                    <xs:element minOccurs="0" name="Rotations" nillable="true" type="tns:XmlRotations"/>
+                    <xs:element minOccurs="0" name="Sections" nillable="true" type="tns:XmlSections"/>
+                    <xs:element minOccurs="0" name="Shoulders" nillable="true" type="tns:XmlShoulders"/>
+                    <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:XmlThreads"/>
+                    <xs:element minOccurs="0" name="TrainRangeList" nillable="true" type="tns:XmlTrainRangeList"/>
+                    <xs:element minOccurs="0" name="Transits" nillable="true" type="tns:XmlTransits"/>
+                    <xs:element minOccurs="0" name="WarningPeregons" nillable="true" type="tns:XmlWarningPeregons"/>
+                    <xs:element minOccurs="0" name="WarningTrains" nillable="true" type="tns:XmlWarningTrains"/>
+                    <xs:element minOccurs="0" name="WayWindows" nillable="true" type="tns:XmlWayWindows"/>
+                    <xs:element minOccurs="0" name="Windows" nillable="true" type="tns:XmlWindows"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="XmlUpdate" nillable="true" type="tns:XmlUpdate"/>
+            <xs:complexType name="ArrayOfXmlTask">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlTask" nillable="true" type="tns:XmlTask"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfXmlTask" nillable="true" type="tns:ArrayOfXmlTask"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="INGDPService_GetRoads_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetRoads"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetRoads_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetRoadsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetClientId_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetClientId"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetClientId_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetClientIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetUsers_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetUsers"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetUsers_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetUsersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetRules_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetRules"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetRules_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetRulesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetRulesByUserId_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetRulesByUserId"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetRulesByUserId_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetRulesByUserIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRuleToUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddRuleToUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRuleToUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddRuleToUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_SetRulesToUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetRulesToUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_SetRulesToUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetRulesToUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveRuleFromUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveRuleFromUser"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveRuleFromUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveRuleFromUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRuleWithDUs_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddRuleWithDUs"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddRuleWithDUs_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddRuleWithDUsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateRuleWithDUs_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateRuleWithDUs"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UpdateRuleWithDUs_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateRuleWithDUsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDUs_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDUs"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDUs_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDUsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDUsByRuleId_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDUsByRuleId"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDUsByRuleId_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDUsByRuleIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddDUForRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddDUForRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddDUForRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddDUForRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveDUFromRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveDUFromRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveDUFromRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveDUFromRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_SetDUsToRule_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetDUsToRule"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_SetDUsToRule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetDUsToRuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddUserIP_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddUserIP"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_AddUserIP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddUserIPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveUserIP_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUserIP"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_RemoveUserIP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUserIPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UnloadTaskFromDbbyDUs_InputMessage">
+        <wsdl:part name="parameters" element="tns:UnloadTaskFromDbbyDUs"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UnloadTaskFromDbbyDUs_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UnloadTaskFromDbbyDUsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UnloadTaskFromDbbySections_InputMessage">
+        <wsdl:part name="parameters" element="tns:UnloadTaskFromDbbySections"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_UnloadTaskFromDbbySections_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UnloadTaskFromDbbySectionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_LoadTaskToDB_InputMessage">
+        <wsdl:part name="parameters" element="tns:LoadTaskToDB"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_LoadTaskToDB_OutputMessage">
+        <wsdl:part name="parameters" element="tns:LoadTaskToDBResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_LoadTaskToDrafts_InputMessage">
+        <wsdl:part name="parameters" element="tns:LoadTaskToDrafts"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_LoadTaskToDrafts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:LoadTaskToDraftsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDrafts_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDrafts"/>
+    </wsdl:message>
+    <wsdl:message name="INGDPService_GetDrafts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDraftsResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="INGDPService">
+        <wsdl:operation name="GetRoads">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetRoads"
+                        message="tns:INGDPService_GetRoads_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetRoadsResponse"
+                         message="tns:INGDPService_GetRoads_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetClientId">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetClientId"
+                        message="tns:INGDPService_GetClientId_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetClientIdResponse"
+                         message="tns:INGDPService_GetClientId_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetUser"
+                        message="tns:INGDPService_GetUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetUserResponse"
+                         message="tns:INGDPService_GetUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetUsers">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetUsers"
+                        message="tns:INGDPService_GetUsers_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetUsersResponse"
+                         message="tns:INGDPService_GetUsers_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/RemoveUser"
+                        message="tns:INGDPService_RemoveUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/RemoveUserResponse"
+                         message="tns:INGDPService_RemoveUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddUser"
+                        message="tns:INGDPService_AddUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddUserResponse"
+                         message="tns:INGDPService_AddUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/UpdateUser"
+                        message="tns:INGDPService_UpdateUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/UpdateUserResponse"
+                         message="tns:INGDPService_UpdateUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRules">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetRules"
+                        message="tns:INGDPService_GetRules_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetRulesResponse"
+                         message="tns:INGDPService_GetRules_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRulesByUserId">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetRulesByUserId"
+                        message="tns:INGDPService_GetRulesByUserId_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetRulesByUserIdResponse"
+                         message="tns:INGDPService_GetRulesByUserId_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddRuleToUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddRuleToUser"
+                        message="tns:INGDPService_AddRuleToUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddRuleToUserResponse"
+                         message="tns:INGDPService_AddRuleToUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetRulesToUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/SetRulesToUser"
+                        message="tns:INGDPService_SetRulesToUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/SetRulesToUserResponse"
+                         message="tns:INGDPService_SetRulesToUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveRuleFromUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/RemoveRuleFromUser"
+                        message="tns:INGDPService_RemoveRuleFromUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/RemoveRuleFromUserResponse"
+                         message="tns:INGDPService_RemoveRuleFromUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddRule"
+                        message="tns:INGDPService_AddRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddRuleResponse"
+                         message="tns:INGDPService_AddRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddRuleWithDUs">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddRuleWithDUs"
+                        message="tns:INGDPService_AddRuleWithDUs_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddRuleWithDUsResponse"
+                         message="tns:INGDPService_AddRuleWithDUs_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/RemoveRule"
+                        message="tns:INGDPService_RemoveRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/RemoveRuleResponse"
+                         message="tns:INGDPService_RemoveRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/UpdateRule"
+                        message="tns:INGDPService_UpdateRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/UpdateRuleResponse"
+                         message="tns:INGDPService_UpdateRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateRuleWithDUs">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/UpdateRuleWithDUs"
+                        message="tns:INGDPService_UpdateRuleWithDUs_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/UpdateRuleWithDUsResponse"
+                         message="tns:INGDPService_UpdateRuleWithDUs_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDUs">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetDUs"
+                        message="tns:INGDPService_GetDUs_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetDUsResponse"
+                         message="tns:INGDPService_GetDUs_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDUsByRuleId">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetDUsByRuleId"
+                        message="tns:INGDPService_GetDUsByRuleId_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetDUsByRuleIdResponse"
+                         message="tns:INGDPService_GetDUsByRuleId_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddDUForRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddDUForRule"
+                        message="tns:INGDPService_AddDUForRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddDUForRuleResponse"
+                         message="tns:INGDPService_AddDUForRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveDUFromRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/RemoveDUFromRule"
+                        message="tns:INGDPService_RemoveDUFromRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/RemoveDUFromRuleResponse"
+                         message="tns:INGDPService_RemoveDUFromRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetDUsToRule">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/SetDUsToRule"
+                        message="tns:INGDPService_SetDUsToRule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/SetDUsToRuleResponse"
+                         message="tns:INGDPService_SetDUsToRule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddUserIP">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/AddUserIP"
+                        message="tns:INGDPService_AddUserIP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/AddUserIPResponse"
+                         message="tns:INGDPService_AddUserIP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUserIP">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/RemoveUserIP"
+                        message="tns:INGDPService_RemoveUserIP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/RemoveUserIPResponse"
+                         message="tns:INGDPService_RemoveUserIP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UnloadTaskFromDbbyDUs">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/UnloadTaskFromDbbyDUs"
+                        message="tns:INGDPService_UnloadTaskFromDbbyDUs_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/UnloadTaskFromDbbyDUsResponse"
+                         message="tns:INGDPService_UnloadTaskFromDbbyDUs_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UnloadTaskFromDbbySections">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/UnloadTaskFromDbbySections"
+                        message="tns:INGDPService_UnloadTaskFromDbbySections_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/UnloadTaskFromDbbySectionsResponse"
+                         message="tns:INGDPService_UnloadTaskFromDbbySections_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="LoadTaskToDB">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/LoadTaskToDB"
+                        message="tns:INGDPService_LoadTaskToDB_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/LoadTaskToDBResponse"
+                         message="tns:INGDPService_LoadTaskToDB_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="LoadTaskToDrafts">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/LoadTaskToDrafts"
+                        message="tns:INGDPService_LoadTaskToDrafts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/LoadTaskToDraftsResponse"
+                         message="tns:INGDPService_LoadTaskToDrafts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDrafts">
+            <wsdl:input wsaw:Action="http://tempuri.org/INGDPService/GetDrafts"
+                        message="tns:INGDPService_GetDrafts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/INGDPService/GetDraftsResponse"
+                         message="tns:INGDPService_GetDrafts_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_INGDPService" type="tns:INGDPService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetRoads">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetRoads" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetClientId">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetClientId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetUsers">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetUsers" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/RemoveUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/UpdateUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRules">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetRules" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRulesByUserId">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetRulesByUserId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddRuleToUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddRuleToUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetRulesToUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/SetRulesToUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveRuleFromUser">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/RemoveRuleFromUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddRuleWithDUs">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddRuleWithDUs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/RemoveRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/UpdateRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateRuleWithDUs">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/UpdateRuleWithDUs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDUs">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetDUs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDUsByRuleId">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetDUsByRuleId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddDUForRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddDUForRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveDUFromRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/RemoveDUFromRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetDUsToRule">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/SetDUsToRule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddUserIP">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/AddUserIP" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUserIP">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/RemoveUserIP" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UnloadTaskFromDbbyDUs">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/UnloadTaskFromDbbyDUs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UnloadTaskFromDbbySections">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/UnloadTaskFromDbbySections" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoadTaskToDB">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/LoadTaskToDB" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoadTaskToDrafts">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/LoadTaskToDrafts" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDrafts">
+            <soap:operation soapAction="http://tempuri.org/INGDPService/GetDrafts" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="IngdpService">
+        <wsdl:port name="BasicHttpBinding_INGDPService" binding="tns:BasicHttpBinding_INGDPService">
+            <soap:address location="http://192.168.1.51:55/NGDPService.svc/localhost"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

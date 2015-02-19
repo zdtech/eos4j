@@ -11,7 +11,9 @@ import org.zdtech.edl.EDLCallback;
 import org.zdtech.edl.Event;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Schekalev
@@ -46,7 +48,7 @@ public class EventHandler implements EDLParameterListener {
                         throw new IllegalArgumentException();
                     }
                 } catch (Exception exp) {
-                    throw new RuntimeException("Not right expression: " + event.getExpression() +"\n "+ exp);
+                    throw new RuntimeException("Not right expression: " + event.getExpression() + "\n " + exp);
                 }
 
             } else throw new RuntimeException("Not all properties exists");
@@ -93,7 +95,15 @@ public class EventHandler implements EDLParameterListener {
         if (this.spelExpression != null) {
             Boolean result = (Boolean) this.spelExpression.getValue(this.evaluationContext);
             if (result) {
-                callback.onEventHappened(event);
+                List<String> desiredValuesNames = callback.getParametersNamesForDesiredValues();
+                Map<String, Object> desiredValues = new HashMap<>();
+                for (String parameterName : desiredValuesNames) {
+                    EDLParameter parameter = this.system.getParameterByName(parameterName);
+                    if (parameter != null) {
+                        desiredValues.put(parameterName, parameter.getValue());
+                    }
+                }
+                callback.onEventHappened(event, desiredValues);
             }
         }
     }
